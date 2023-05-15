@@ -1,7 +1,7 @@
 package list.que;
 
 public class MyQue<T> {
-    MyNode head;
+    MyNode root;
     MyNode tail;
     int size=0;
 
@@ -23,7 +23,7 @@ public class MyQue<T> {
 //        System.out.println(node.object);
         size++;
         if (size==1){
-            head=node;
+            root=node;
             tail=node;
         }else {
             tail.next=node;
@@ -33,16 +33,16 @@ public class MyQue<T> {
     }
     //큐의 맨 앞 요소를 제거하고 반환한다.
     public T dequeue(){
-        MyNode temp = head;
+        MyNode temp = root;
         Object result = temp.object;
-        head=head.next;
+        root=root.next;
         size--;
         return (T)result;
     }
     //큐의 맨 앞 요소 데이터를 반환한다 (제거하지 않음).
     public T peek(){
         MyNode node = new MyNode();
-        return (T)head;
+        return (T)root;
 
     }
     //큐의 크기(요소 수)를 반환한다.

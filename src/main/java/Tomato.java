@@ -4,7 +4,7 @@ import java.util.List;
 public class Tomato<T> {
 
     Object[] list;
-    int pointer=0;
+    int root=0;
 
 
 
@@ -20,11 +20,11 @@ public class Tomato<T> {
 
     //어레이 리스트의 끝에 새로운 요소를 추가한다.
     public void add(T data){
-        if (pointer == list.length-1){
+        if (root == list.length-1){
             resize();
         }
-        list[pointer]=data;
-        pointer++;
+        list[root]=data;
+        root++;
     }
 
     private void resize() {
@@ -39,35 +39,35 @@ public class Tomato<T> {
 
     //지정된 인덱스의 요소를 삭제
     public void remove(int index){
-        if(index+1 == pointer){
+        if(index+1 == root){
             list[index]=null;
-            pointer--;
+            root--;
         }
-//        for(int i=index;i<pointer;i++){
-        for(int i=index;i<pointer-1;i++){
+//        for(int i=index;i<root;i++){
+        for(int i=index;i<root-1;i++){
             list[index]=list[index+1];
         }
-        pointer--;
+        root--;
     }
 
     //어레이 리스트의 크기(요소 수)를 반환한다.
     public int size() {
-        return pointer;
+        return root;
     }
     //어레이 리스트가 비어 있는지 확인한다.
     public boolean isEmpty(){
-        return pointer == 0;
+        return root == 0;
     }
     // 지정된 인덱스에 새로운 요소를 삽입한다.
     public void add(int index, T value) {
-        if(index+1 == pointer){
+        if(index+1 == root){
             resize();
         }
-        for(int i=pointer;i>index;i--){
+        for(int i=root;i>index;i--){
             list[i] = list[i-1];
         }
         list[index]=value;
-        pointer++;
+        root++;
 
     }
 

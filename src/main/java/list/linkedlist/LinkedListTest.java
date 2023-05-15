@@ -14,7 +14,8 @@ public class LinkedListTest {
 
         // [1,2,3,4,5,6,7,8,9,10]
 
-        list.add(0, 9999);
+        list.add(1, 9999);
+        list.remove(3);
 
         for(int i = 0; i< list.size(); i++){
             System.out.println(list.get(i));
